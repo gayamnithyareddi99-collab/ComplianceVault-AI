@@ -1,0 +1,3386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ComplianceVault AI Ltd</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
+<style>
+
+/* ================= GLOBAL ================= */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family:'Inter', sans-serif;
+  background:#F4F8FC;
+  color:#0A192F;
+  scroll-behavior:smooth;
+}
+
+/* ================= NAV ================= */
+
+nav{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:#0A192F;
+  padding:18px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  z-index:1000;
+}
+
+.logo{
+  font-weight:900;
+  font-size:18px;
+  color:#E6F1FF;
+  letter-spacing:1px;
+}
+
+.nav-links{
+  display:flex;
+  gap:35px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#A8B2D1;
+  font-size:14px;
+  transition:0.3s;
+}
+
+.nav-links a:hover{
+  color:#00BFFF;
+}
+
+.menu-btn{
+  display:none;
+  color:white;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+  min-height:100vh;
+  padding:170px 8% 120px;
+  background:linear-gradient(135deg,#0A192F,#112240);
+  color:#E6F1FF;
+  position:relative;
+  overflow:hidden;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#00BFFF30,transparent);
+  top:-150px;
+  right:-150px;
+}
+
+.hero h1{
+  font-size:60px;
+  font-weight:900;
+  line-height:1.1;
+}
+
+.hero h1 span{
+  color:#00BFFF;
+}
+
+.hero p{
+  margin-top:25px;
+  max-width:600px;
+  line-height:1.8;
+  color:#A8B2D1;
+}
+
+.hero-buttons{
+  margin-top:40px;
+  display:flex;
+  gap:20px;
+}
+
+.btn{
+  padding:14px 30px;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+  transition:0.3s;
+  border-radius:6px;
+}
+
+.btn-primary{
+  background:#00BFFF;
+  color:#0A192F;
+}
+
+.btn-primary:hover{
+  background:#3FA9F5;
+}
+
+.btn-outline{
+  border:1px solid #00BFFF;
+  color:#00BFFF;
+}
+
+.btn-outline:hover{
+  background:#00BFFF;
+  color:#0A192F;
+}
+
+/* ================= SECTION ================= */
+
+.section{
+  padding:120px 8%;
+}
+
+.section-title{
+  font-size:42px;
+  font-weight:900;
+  margin-bottom:20px;
+}
+
+.section-title span{
+  color:#00BFFF;
+}
+
+.section-text{
+  max-width:720px;
+  line-height:1.8;
+  color:#5B6B82;
+  margin-bottom:70px;
+}
+
+/* ================= FEATURES ================= */
+
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:30px;
+}
+
+.feature-card{
+  background:white;
+  padding:40px;
+  border-radius:12px;
+  border:1px solid #E1E8F0;
+  transition:0.3s;
+}
+
+.feature-card:hover{
+  transform:translateY(-8px);
+  border-color:#00BFFF;
+  box-shadow:0 20px 50px rgba(0,191,255,0.15);
+}
+
+.feature-card h4{
+  margin-bottom:12px;
+  font-size:18px;
+  color:#0A192F;
+}
+
+.feature-card p{
+  font-size:14px;
+  line-height:1.7;
+  color:#5B6B82;
+}
+
+/* ================= IMPACT ================= */
+
+.impact{
+  background:#112240;
+  padding:90px 8%;
+  color:#E6F1FF;
+  text-align:center;
+}
+
+.impact-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:40px;
+}
+
+.impact h3{
+  font-size:38px;
+  color:#00BFFF;
+}
+
+.impact p{
+  font-size:13px;
+  color:#A8B2D1;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  background:#0A192F;
+  padding:50px 8%;
+  text-align:center;
+  color:#8892B0;
+  font-size:13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+  .hero h1{
+    font-size:34px;
+  }
+
+  .features-grid{
+    grid-template-columns:1fr;
+  }
+
+  .impact-grid{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:70px;
+    right:8%;
+    background:#112240;
+    flex-direction:column;
+    padding:20px;
+  }
+
+  .nav-links.show{
+    display:flex;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">ComplianceVault AI</div>
+  <div class="nav-links" id="navLinks">
+    <a href="#about">Platform</a>
+    <a href="#features">Solutions</a>
+    <a href="#impact">Impact</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+</nav>
+<!-- ================= PREMIUM NAVBAR ================= -->
+
+<header class="navbar">
+
+  <div class="nav-container">
+
+    <!-- LOGO -->
+    <div class="logo">
+      ComplianceVault AI
+    </div>
+
+    <!-- DESKTOP MENU -->
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#features">Features</a>
+      <a href="#process">Process</a>
+      <a href="#solutions">Solutions</a>
+      <a href="#about">About</a>
+      <a href="#founder">Founder</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- MOBILE MENU ICON -->
+    <div class="menu-toggle" onclick="toggleMenu()">
+      💦
+    </div>
+
+  </div>
+
+</header>
+
+
+<style>
+
+/* ================= NAVBAR ================= */
+
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  background:#0A192F;
+  padding:16px 6%;
+  z-index:999;
+  border-bottom:1px solid rgba(255,255,255,0.05);
+  backdrop-filter:blur(6px);
+}
+
+.nav-container{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  max-width:1200px;
+  margin:auto;
+}
+
+/* LOGO */
+.logo{
+  color:#00BFFF;
+  font-weight:800;
+  font-size:16px;
+  letter-spacing:1px;
+}
+
+/* DESKTOP LINKS */
+.nav-links{
+  display:flex;
+  gap:28px;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#A8B2D1;
+  font-size:14px;
+  font-weight:500;
+  transition:0.3s;
+  position:relative;
+}
+
+.nav-links a:hover{
+  color:#00BFFF;
+}
+
+/* underline animation */
+.nav-links a::after{
+  content:"";
+  position:absolute;
+  bottom:-4px;
+  left:0;
+  width:0;
+  height:1px;
+  background:#00BFFF;
+  transition:0.3s;
+}
+
+.nav-links a:hover::after{
+  width:100%;
+}
+
+/* MOBILE ICON */
+.menu-toggle{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+  color:#00BFFF;
+}
+
+/* ================= MOBILE MENU ================= */
+
+@media(max-width:900px){
+
+  .nav-links{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#0A192F;
+    flex-direction:column;
+    align-items:center;
+    gap:22px;
+    padding:30px 0;
+    display:none;
+    border-top:1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-links.show{
+    display:flex;
+    animation:fadeDown 0.3s ease;
+  }
+
+  @keyframes fadeDown{
+    from{opacity:0; transform:translateY(-10px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+
+}
+
+</style>
+
+
+<script>
+
+/* Toggle mobile menu */
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("show");
+}
+
+/* Auto close when clicking a link (mobile) */
+document.querySelectorAll(".nav-links a").forEach(link=>{
+  link.addEventListener("click", ()=>{
+    document.getElementById("navLinks").classList.remove("show");
+  });
+});
+
+</script>
+<!-- ================= PREMIUM HOME WITH IMAGE BACKGROUND ================= -->
+
+<section class="home-section" id="home">
+
+  <div class="overlay"></div>
+  <div class="home-glow"></div>
+
+  <div class="home-container">
+
+    <div class="home-tag">
+      UK REGTECH • AI-POWERED COMPLIANCE
+    </div>
+
+    <h1>
+      Predictive Compliance <span>Before HMRC Acts</span>
+    </h1>
+
+    <div class="home-divider">
+      <span></span>
+    </div>
+
+    <p class="home-description">
+      ComplianceVault AI converts open-banking transaction data into
+      structured audit simulation, regulatory drift monitoring,
+      and penalty probability forecasting — built for UK
+      micro-businesses under Making Tax Digital.
+    </p>
+
+    <div class="home-buttons">
+      <a href="#contact" class="btn-primary">Request Executive Demo →</a>
+      <a href="#features" class="btn-outline">Explore Technology</a>
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* ================= HOME SECTION ================= */
+
+.home-section{
+  position:relative;
+  padding:120px 8%;
+  text-align:center;
+  color:#E6F1FF;
+
+  /* RELEVANT BACKGROUND IMAGE */
+  background:
+    linear-gradient(rgba(10,25,47,0.85), rgba(10,25,47,0.95)),
+    url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1920&auto=format&fit=crop');
+
+  background-size:cover;
+  background-position:center;
+  background-attachment:fixed;
+  overflow:hidden;
+}
+
+/* Overlay extra depth */
+.overlay{
+  position:absolute;
+  inset:0;
+  background:linear-gradient(120deg,#0A192Fdd,#112240dd);
+}
+
+/* Soft radial glow */
+.home-glow{
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#00BFFF20,transparent 70%);
+  top:20%;
+  left:50%;
+  transform:translateX(-50%);
+  filter:blur(60px);
+  animation:glowMove 6s ease-in-out infinite alternate;
+}
+
+@keyframes glowMove{
+  from{transform:translate(-50%, -20px);}
+  to{transform:translate(-50%, 20px);}
+}
+
+.home-container{
+  max-width:900px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+/* Tag */
+.home-tag{
+  font-size:11px;
+  letter-spacing:0.4em;
+  color:#00BFFF;
+  margin-bottom:30px;
+}
+
+/* Heading */
+.home-section h1{
+  font-size:52px;
+  font-weight:900;
+  line-height:1.2;
+}
+
+.home-section h1 span{
+  color:#00BFFF;
+}
+
+/* Divider */
+.home-divider{
+  position:relative;
+  width:160px;
+  height:20px;
+  margin:35px auto;
+}
+
+.home-divider::before,
+.home-divider::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:60px;
+  height:1px;
+  background:linear-gradient(to right,transparent,#00BFFF);
+}
+
+.home-divider::before{
+  left:0;
+  transform:translateY(-50%);
+}
+
+.home-divider::after{
+  right:0;
+  transform:translateY(-50%) rotate(180deg);
+}
+
+.home-divider span{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:10px;
+  height:10px;
+  background:#00BFFF;
+  border-radius:50%;
+  box-shadow:0 0 18px #00BFFF;
+  animation:pulseDot 2s infinite;
+}
+
+@keyframes pulseDot{
+  0%{box-shadow:0 0 8px #00BFFF;}
+  50%{box-shadow:0 0 20px #00BFFF;}
+  100%{box-shadow:0 0 8px #00BFFF;}
+}
+
+/* Description */
+.home-description{
+  font-size:16px;
+  line-height:1.8;
+  color:#A8B2D1;
+  margin-bottom:45px;
+}
+
+/* Buttons */
+.home-buttons{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+.btn-primary{
+  padding:14px 28px;
+  background:#00BFFF;
+  color:#0A192F;
+  font-weight:700;
+  border-radius:6px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.btn-primary:hover{
+  background:#3FA9F5;
+  transform:translateY(-3px);
+}
+
+.btn-outline{
+  padding:14px 28px;
+  border:1px solid #00BFFF;
+  color:#00BFFF;
+  font-weight:600;
+  border-radius:6px;
+  text-decoration:none;
+  transition:0.3s;
+}
+
+.btn-outline:hover{
+  background:#00BFFF;
+  color:#0A192F;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .home-section{
+    padding:80px 20px;
+    background-attachment:scroll;
+  }
+
+  .home-section h1{
+    font-size:28px;
+  }
+
+  .home-description{
+    font-size:14px;
+  }
+
+}
+
+</style>
+
+<!-- ================= ABOUT SECTION ================= -->
+
+<section class="about-premium" id="about">
+
+  <!-- Background Decorative Shapes -->
+  <div class="about-shape shape-a"></div>
+  <div class="about-shape shape-b"></div>
+
+  <div class="about-container">
+
+    <!-- HEADING MODEL (Same as Previous Sections) -->
+    <div class="about-heading">
+
+      <span class="mini-tag">UK REGTECH PLATFORM</span>
+
+      <h2>
+        Redefining Micro-Business <span>Compliance Intelligence</span>
+      </h2>
+
+      <!-- SAME PREMIUM DIVIDER MODEL -->
+      <div class="premium-divider-new">
+        <div class="line-left"></div>
+        <div class="center-badge">ABOUT</div>
+        <div class="line-right"></div>
+      </div>
+
+      <p class="sub-text">
+        ComplianceVault AI Ltd is pioneering predictive compliance intelligence for the UK’s 5.5 million micro-businesses operating under evolving HMRC regulations.
+      </p>
+
+    </div>
+
+    <!-- CONTENT SECTION -->
+    <div class="about-content">
+
+      <!-- LEFT BLOCK -->
+      <div class="about-text-block">
+
+        <h3>Our Mission</h3>
+        <p>
+          ComplianceVault AI transforms traditional bookkeeping into forward-looking regulatory intelligence. 
+          Rather than reacting to compliance issues after they arise, our platform anticipates audit triggers, 
+          models penalty exposure, and delivers actionable insights before financial risk materialises.
+        </p>
+
+        <p>
+          Built specifically for UK sole traders and small limited companies below the £90k VAT threshold, 
+          the system overlays open-banking transaction streams and converts them into structured, 
+          predictive compliance dashboards aligned with Making Tax Digital (MTD) mandates.
+        </p>
+
+      </div>
+
+      <!-- RIGHT BLOCK -->
+      <div class="about-highlight-box">
+
+        <h4>What Makes Us Different</h4>
+
+        <ul>
+          <li>Causal AI-driven audit probability simulations</li>
+          <li>Counterfactual "what-if" modelling engine</li>
+          <li>Real-time regulatory drift monitoring</li>
+          <li>Bank-agnostic secure API architecture</li>
+          <li>MTD-ready digital audit trail exports</li>
+        </ul>
+
+        <div class="about-vision">
+          <strong>Vision:</strong> 
+          To create a UK where every micro-business operates with fearless compliance, 
+          backed by predictive AI intelligence rather than reactive record-keeping.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* ================= MAIN SECTION ================= */
+
+.about-premium{
+  position:relative;
+  background:#e6f7ff;
+  padding:130px 8%;
+  overflow:hidden;
+  font-family:Arial, sans-serif;
+  color:#0A192F;
+}
+
+/* Decorative shapes */
+.about-shape{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(70px);
+}
+
+.shape-a{
+  width:350px;
+  height:350px;
+  background:#00BFFF20;
+  top:-120px;
+  right:-120px;
+}
+
+.shape-b{
+  width:300px;
+  height:300px;
+  background:#3FA9F530;
+  bottom:-120px;
+  left:-120px;
+}
+
+/* Container */
+.about-container{
+  max-width:1100px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+/* ================= HEADING ================= */
+
+.about-heading{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.mini-tag{
+  font-size:11px;
+  letter-spacing:0.3em;
+  color:#00BFFF;
+  font-weight:700;
+}
+
+.about-heading h2{
+  font-size:42px;
+  font-weight:900;
+  margin-top:20px;
+}
+
+.about-heading h2 span{
+  color:#00BFFF;
+}
+
+/* SAME PREMIUM DIVIDER */
+.premium-divider-new{
+  margin:30px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+}
+
+.line-left,
+.line-right{
+  width:80px;
+  height:2px;
+  background:linear-gradient(to right,#00BFFF,transparent);
+}
+
+.line-right{
+  transform:rotate(180deg);
+}
+
+.center-badge{
+  padding:6px 16px;
+  background:#00BFFF;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+  color:#ffffff;
+  box-shadow:0 0 15px #00BFFF40;
+}
+
+.sub-text{
+  max-width:650px;
+  margin:auto;
+  font-size:14px;
+  color:#174e75;
+  line-height:1.7;
+}
+
+/* ================= CONTENT ================= */
+
+.about-content{
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:50px;
+}
+
+/* Text Block */
+.about-text-block h3{
+  font-size:22px;
+  margin-bottom:20px;
+}
+
+.about-text-block p{
+  font-size:14px;
+  line-height:1.9;
+  color:#174e75;
+  margin-bottom:20px;
+}
+
+/* Highlight Box */
+.about-highlight-box{
+  background:#ffffff;
+  border-radius:18px;
+  padding:40px 30px;
+  border:1px solid #dcefff;
+  position:relative;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+/* Animated border */
+.about-highlight-box::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  padding:1px;
+  background:linear-gradient(90deg,#00BFFF,#3FA9F5,#00BFFF);
+  background-size:200% 200%;
+  animation:borderMove 6s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+}
+
+@keyframes borderMove{
+  0%{background-position:0% 50%;}
+  100%{background-position:200% 50%;}
+}
+
+.about-highlight-box:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,191,255,0.15);
+}
+
+.about-highlight-box h4{
+  font-size:18px;
+  margin-bottom:20px;
+}
+
+.about-highlight-box ul{
+  padding-left:18px;
+  font-size:14px;
+  line-height:1.8;
+  color:#174e75;
+  margin-bottom:25px;
+}
+
+.about-highlight-box ul li{
+  margin-bottom:8px;
+}
+
+/* Vision Box */
+.about-vision{
+  background:#f0fbff;
+  padding:15px 18px;
+  border-radius:10px;
+  font-size:13px;
+  line-height:1.6;
+  color:#0A192F;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .about-premium{
+    padding:80px 20px;
+  }
+
+  .about-heading h2{
+    font-size:26px;
+  }
+
+  .about-content{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+<!-- ================= FOUNDER SECTION ================= -->
+
+<section class="founder-section" id="founder">
+
+  <div class="founder-container">
+
+    <!-- SAME HEADING MODEL AS FEATURES -->
+    <div class="section-heading">
+      <h2>Founder & Strategic Direction</h2>
+      <!-- Same Premium Divider Model -->
+      <div class="premium-divider-new">
+        <div class="line-left"></div>
+        <div class="center-badge">Founder</div>
+        <div class="line-right"></div>
+      </div>
+
+    <!-- FOUNDER NAME -->
+    <h3 class="founder-name">
+      Muhammad Hasnain Waheed
+    </h3>
+
+    <!-- CONTENT -->
+    <div class="founder-content">
+
+      <p class="founder-highlight">
+        ComplianceVault AI Ltd was established to redefine how UK micro-businesses approach regulatory compliance — 
+        shifting from reactive reporting to predictive intelligence under HMRC’s Making Tax Digital framework.
+      </p>
+
+      <p>
+        The foundation of ComplianceVault AI was built on direct exposure to financial reporting, audit preparation, 
+        and risk management environments across multiple jurisdictions. These real-world observations revealed a 
+        structural gap in the UK compliance ecosystem: micro-businesses lacked forward-looking tools to anticipate 
+        audit triggers and quantify regulatory exposure.
+      </p>
+
+      <p>
+        Under the strategic leadership of Muhammad Hasnain Waheed, the company was architected not as another 
+        bookkeeping system, but as a Predictive Compliance Intelligence Platform. By embedding causal inference, 
+        Monte Carlo simulations, and regulatory drift monitoring into its core engine, ComplianceVault transforms 
+        transaction data into proactive compliance foresight.
+      </p>
+
+      <p>
+        The founder leads product definition, regulatory alignment, risk modelling logic, and long-term 
+        infrastructure planning. Every system workflow — from audit-risk scoring to counterfactual scenario modelling — 
+        is designed to mirror real accounting practices while simplifying complexity for sole traders and 
+        small limited companies operating below the £90k VAT threshold.
+      </p>
+
+      <p>
+        ComplianceVault’s long-term vision is to establish the UK’s first predictive compliance engine for 
+        micro-businesses, eliminate avoidable penalty exposure, and scale into EU VAT regimes with jurisdiction-aware 
+        compliance modelling. The strategic objective is clear: deliver measurable regulatory confidence at scale 
+        through intelligent automation and defensible audit intelligence.
+      </p>
+
+    </div>
+
+  </div>
+<div class="section-divider">
+        <span></span>
+      </div>
+    </div>
+</section>
+
+
+<style>
+
+/* ================= NAVY FOUNDER SECTION ================= */
+
+.founder-section{
+  background:#0A192F;
+  padding:130px 8%;
+  position:relative;
+  color:#E6F1FF;
+  overflow:hidden;
+}
+
+/* Background subtle animated glow */
+.founder-section::before{
+  content:"";
+  position:absolute;
+  width:700px;
+  height:700px;
+  background:radial-gradient(circle,#00BFFF18,transparent 70%);
+  top:-150px;
+  right:-200px;
+  filter:blur(50px);
+  animation:founderGlow 8s ease-in-out infinite alternate;
+}
+
+@keyframes founderGlow{
+  from{transform:translateY(-30px);}
+  to{transform:translateY(30px);}
+}
+
+/* Container */
+.founder-container{
+  max-width:1100px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+/* ===== SAME HEADING MODEL ===== */
+
+.section-heading{
+  text-align:center;
+  margin-bottom:60px;
+}
+
+.section-heading h2{
+  font-size:44px;
+  font-weight:900;
+  letter-spacing:1px;
+}
+
+/* SAME DIVIDER MODEL */
+
+.section-divider{
+  position:relative;
+  width:160px;
+  height:20px;
+  margin:25px auto 0;
+}
+
+.section-divider::before,
+.section-divider::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:60px;
+  height:1px;
+  background:linear-gradient(to right,transparent,#00BFFF);
+}
+
+.section-divider::before{
+  left:0;
+  transform:translateY(-50%);
+}
+
+.section-divider::after{
+  right:0;
+  transform:translateY(-50%) rotate(180deg);
+}
+
+.section-divider span{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:10px;
+  height:10px;
+  background:#00BFFF;
+  border-radius:50%;
+  box-shadow:0 0 18px #00BFFF;
+  animation:pulseDot 2s infinite;
+}
+
+@keyframes pulseDot{
+  0%{box-shadow:0 0 8px #00BFFF;}
+  50%{box-shadow:0 0 20px #00BFFF;}
+  100%{box-shadow:0 0 8px #00BFFF;}
+}
+
+/* Founder Name */
+
+.founder-name{
+  text-align:center;
+  font-size:22px;
+  font-weight:700;
+  color:#00BFFF;
+  margin-bottom:50px;
+  letter-spacing:1px;
+}
+
+/* Content */
+
+.founder-content{
+  max-width:900px;
+  margin:auto;
+  line-height:1.9;
+  font-size:15px;
+  color:#A8B2D1;
+}
+
+.founder-content p{
+  margin-bottom:28px;
+  transition:0.4s;
+}
+
+.founder-content p:hover{
+  color:#ffffff;
+}
+
+/* Highlight paragraph */
+
+.founder-highlight{
+  font-size:17px;
+  font-weight:600;
+  color:#E6F1FF;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .founder-section{
+    padding:80px 20px;
+  }
+
+  .section-heading h2{
+    font-size:26px;
+  }
+
+  .founder-name{
+    font-size:18px;
+  }
+
+  .founder-content{
+    font-size:14px;
+  }
+
+}
+
+</style>
+<!-- ================= PROBLEMS & SOLUTIONS SECTION ================= -->
+
+<section class="ps-premium" id="problems-solutions">
+
+  <!-- Soft Background Shapes -->
+  <div class="ps-shape shape-1"></div>
+  <div class="ps-shape shape-2"></div>
+
+  <div class="ps-container">
+
+    <!-- HEADING MODEL (Same as Previous Divider Style) -->
+    <div class="ps-heading">
+
+      <span class="mini-tag">UK REGTECH PLATFORM</span>
+
+      <h2>
+        Compliance Challenges <span>& Smart Solutions</span>
+      </h2>
+
+      <!-- Same Premium Divider Model -->
+      <div class="premium-divider-new">
+        <div class="line-left"></div>
+        <div class="center-badge">INSIGHT</div>
+        <div class="line-right"></div>
+      </div>
+
+      <p class="sub-text">
+        Addressing the real compliance risks faced by UK micro-businesses under HMRC’s MTD framework.
+      </p>
+
+    </div>
+
+    <!-- PROBLEMS & SOLUTIONS GRID -->
+    <div class="ps-grid">
+
+      <!-- PROBLEM CARD -->
+      <div class="ps-card problem-card">
+
+        <div class="ps-label problem-label">PROBLEMS</div>
+
+        <h3>Common Compliance Risks</h3>
+
+        <ul>
+          <li>Manual spreadsheet errors</li>
+          <li>Mixed personal & business transactions</li>
+          <li>Uncertainty near £90k VAT threshold</li>
+          <li>Lack of audit-risk visibility</li>
+          <li>Late reaction to HMRC regulation changes</li>
+        </ul>
+
+      </div>
+
+      <!-- SOLUTION CARD -->
+      <div class="ps-card solution-card">
+
+        <div class="ps-label solution-label">SOLUTIONS</div>
+
+        <h3>Predictive Intelligence Engine</h3>
+
+        <ul>
+          <li>AI-driven audit probability forecasting</li>
+          <li>Counterfactual "what-if" modelling</li>
+          <li>Real-time VAT exposure monitoring</li>
+          <li>Automated regulatory drift tracking</li>
+          <li>MTD-aligned digital audit trail exports</li>
+        </ul>
+
+      </div>
+
+    </div>
+
+  </div>
+<div class="section-divider">
+        <span></span>
+      </div>
+    </div>
+</section>
+
+<style>
+
+/* ================= MAIN SECTION ================= */
+
+.ps-premium{
+  position:relative;
+  background:#ffffff;
+  padding:130px 8%;
+  overflow:hidden;
+  font-family:Arial, sans-serif;
+  color:#0A192F;
+}
+
+/* Soft background shapes */
+.ps-shape{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(60px);
+}
+
+.shape-1{
+  width:300px;
+  height:300px;
+  background:#00BFFF15;
+  top:-80px;
+  right:-80px;
+}
+
+.shape-2{
+  width:250px;
+  height:250px;
+  background:#3FA9F520;
+  bottom:-80px;
+  left:-80px;
+}
+
+/* Container */
+.ps-container{
+  max-width:1100px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+/* ================= HEADING ================= */
+
+.ps-heading{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.mini-tag{
+  font-size:11px;
+  letter-spacing:0.3em;
+  color:#00BFFF;
+  font-weight:700;
+}
+
+.ps-heading h2{
+  font-size:42px;
+  font-weight:900;
+  margin-top:20px;
+}
+
+.ps-heading h2 span{
+  color:#00BFFF;
+}
+
+/* Same Divider Model */
+.premium-divider-new{
+  margin:30px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+}
+
+.line-left,
+.line-right{
+  width:80px;
+  height:2px;
+  background:linear-gradient(to right,#00BFFF,transparent);
+}
+
+.line-right{
+  transform:rotate(180deg);
+}
+
+.center-badge{
+  padding:6px 16px;
+  background:#00BFFF;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+  color:#ffffff;
+  box-shadow:0 0 15px #00BFFF40;
+}
+
+.sub-text{
+  max-width:650px;
+  margin:auto;
+  font-size:14px;
+  color:#4a6785;
+  line-height:1.7;
+}
+
+/* ================= GRID ================= */
+
+.ps-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+/* CARD BASE */
+.ps-card{
+  position:relative;
+  border-radius:18px;
+  padding:40px 35px;
+  border:1px solid #dcefff;
+  overflow:hidden;
+  transition:0.4s;
+  background:#f8fcff;
+}
+
+/* Animated border effect */
+.ps-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  padding:1px;
+  background:linear-gradient(90deg,#00BFFF,#3FA9F5,#00BFFF);
+  background-size:200% 200%;
+  animation:borderMove 6s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+}
+
+@keyframes borderMove{
+  0%{background-position:0% 50%;}
+  100%{background-position:200% 50%;}
+}
+
+.ps-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 40px rgba(0,191,255,0.15);
+}
+
+/* Labels */
+.ps-label{
+  display:inline-block;
+  font-size:11px;
+  font-weight:700;
+  padding:6px 14px;
+  border-radius:20px;
+  margin-bottom:20px;
+  letter-spacing:0.1em;
+}
+
+.problem-label{
+  background:#ffe9e9;
+  color:#c0392b;
+}
+
+.solution-label{
+  background:#e6f9ff;
+  color:#00BFFF;
+}
+
+/* Title */
+.ps-card h3{
+  font-size:20px;
+  margin-bottom:20px;
+}
+
+/* List */
+.ps-card ul{
+  padding-left:18px;
+  font-size:14px;
+  line-height:1.9;
+  color:#4a6785;
+}
+
+.ps-card ul li{
+  margin-bottom:8px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+  .ps-premium{
+    padding:80px 20px;
+  }
+
+  .ps-heading h2{
+    font-size:26px;
+  }
+
+  .ps-grid{
+    grid-template-columns:1fr;
+  }
+
+}
+
+</style>
+<!-- ================= PREMIUM FEATURES SECTION ================= -->
+
+<section class="features-premium" id="features">
+
+  <!-- Background Effects -->
+  <div class="feature-beam"></div>
+  <div class="feature-glow"></div>
+
+  <div class="features-container">
+
+    <!-- HEADING MODEL (Same Style) -->
+    <div class="features-heading">
+
+      <span class="mini-tag">UK REGTECH PLATFORM</span>
+
+      <h2>
+        Intelligent Compliance <span>Capabilities</span>
+      </h2>
+
+      <!-- Premium Divider -->
+      <div class="premium-divider-new">
+        <div class="line-left"></div>
+        <div class="center-badge">FEATURES</div>
+        <div class="line-right"></div>
+      </div>
+
+      <p class="sub-text">
+        Advanced predictive modelling built specifically for UK micro-businesses operating under MTD frameworks.
+      </p>
+
+    </div>
+
+    <!-- FEATURE CARDS -->
+    <div class="features-grid">
+
+      <!-- CARD 1 -->
+      <div class="feature-card">
+        <div class="feature-image">
+          <img src="https://img.icons8.com/fluency/96/artificial-intelligence.png"/>
+        </div>
+        <h3>AI-Powered Audit Simulation</h3>
+
+        <ul>
+          <li>Predict HMRC audit probability in real time</li>
+          <li>Monte Carlo risk forecasting engine</li>
+          <li>Behaviour-triggered red flag detection</li>
+          <li>Penalty exposure modelling</li>
+        </ul>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="feature-card">
+        <div class="feature-image">
+          <img src="https://img.icons8.com/fluency/96/combo-chart.png"/>
+        </div>
+        <h3>Counterfactual Risk Modelling</h3>
+
+        <ul>
+          <li>What-if transaction reclassification</li>
+          <li>Mixed personal/business risk alerts</li>
+          <li>VAT threshold exposure forecasts</li>
+          <li>Optimised compliance recommendations</li>
+        </ul>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="feature-card">
+        <div class="feature-image">
+          <img src="https://img.icons8.com/fluency/96/data-configuration.png"/>
+        </div>
+        <h3>Regulatory Drift Monitoring</h3>
+
+        <ul>
+          <li>Real-time HMRC guidance tracking</li>
+          <li>Automatic risk recalibration</li>
+          <li>MTD-aligned digital link validation</li>
+          <li>Compliance update alerts</li>
+        </ul>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="feature-card">
+        <div class="feature-image">
+          <img src="https://img.icons8.com/fluency/96/lock-2.png"/>
+        </div>
+        <h3>Secure Open-Banking Overlay</h3>
+
+        <ul>
+          <li>Encrypted read-only integrations</li>
+          <li>Zero-trust cloud architecture</li>
+          <li>Bank-agnostic compatibility</li>
+          <li>HMRC-defensible audit trails</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+/* ================= MAIN SECTION ================= */
+
+.features-premium{
+  position:relative;
+  background:#0A192F;
+  padding:130px 8%;
+  overflow:hidden;
+  color:#E6F1FF;
+  font-family:Arial, sans-serif;
+}
+
+/* Background Glow */
+.feature-glow{
+  position:absolute;
+  width:500px;
+  height:500px;
+  background:radial-gradient(circle,#00BFFF20,transparent);
+  top:20%;
+  right:10%;
+  filter:blur(60px);
+}
+
+/* Moving Beam */
+.feature-beam{
+  position:absolute;
+  width:200%;
+  height:200px;
+  background:linear-gradient(120deg,transparent,#00BFFF15,transparent);
+  top:-50px;
+  left:-50%;
+  transform:rotate(-8deg);
+  animation:beamMove 12s linear infinite;
+}
+
+@keyframes beamMove{
+  0%{transform:translateX(-100%) rotate(-8deg);}
+  100%{transform:translateX(100%) rotate(-8deg);}
+}
+
+/* Container */
+.features-container{
+  max-width:1200px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+/* HEADING */
+.features-heading{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.mini-tag{
+  font-size:11px;
+  letter-spacing:0.3em;
+  color:#00BFFF;
+  font-weight:700;
+}
+
+.features-heading h2{
+  font-size:42px;
+  font-weight:900;
+  margin-top:20px;
+}
+
+.features-heading h2 span{
+  color:#00BFFF;
+}
+
+/* Divider */
+.premium-divider-new{
+  margin:30px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+}
+
+.line-left,
+.line-right{
+  width:80px;
+  height:2px;
+  background:linear-gradient(to right,#00BFFF,transparent);
+}
+
+.line-right{
+  transform:rotate(180deg);
+}
+
+.center-badge{
+  padding:6px 16px;
+  background:#00BFFF;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:700;
+  color:#0A192F;
+  box-shadow:0 0 15px #00BFFF50;
+}
+
+.sub-text{
+  max-width:650px;
+  margin:auto;
+  font-size:14px;
+  color:#A8B2D1;
+  line-height:1.7;
+}
+
+/* GRID */
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;
+}
+
+/* CARD */
+.feature-card{
+  position:relative;
+  background:#112240;
+  border-radius:18px;
+  padding:35px 30px;
+  border:1px solid #1f3b63;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+/* Animated Border */
+.feature-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  padding:1px;
+  background:linear-gradient(90deg,#00BFFF,#3FA9F5,#00BFFF);
+  background-size:200% 200%;
+  animation:borderMove 6s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+}
+
+@keyframes borderMove{
+  0%{background-position:0% 50%;}
+  100%{background-position:200% 50%;}
+}
+
+.feature-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 40px rgba(0,191,255,0.2);
+}
+
+/* Image */
+.feature-image{
+  margin-bottom:20px;
+}
+
+.feature-image img{
+  width:60px;
+}
+
+/* Title */
+.feature-card h3{
+  font-size:18px;
+  margin-bottom:15px;
+  color:#E6F1FF;
+}
+
+/* List */
+.feature-card ul{
+  padding-left:18px;
+  font-size:13px;
+  line-height:1.8;
+  color:#A8B2D1;
+}
+
+.feature-card ul li{
+  margin-bottom:6px;
+}
+
+/* ================= IMPROVED MOBILE RESPONSIVE ================= */
+
+@media(max-width:1024px){
+
+  .features-premium{
+    padding:100px 6%;
+  }
+
+  .features-heading h2{
+    font-size:34px;
+  }
+
+  .features-grid{
+    gap:25px;
+  }
+
+}
+
+@media(max-width:768px){
+
+  .features-premium{
+    padding:70px 20px;
+  }
+
+  .mini-tag{
+    font-size:10px;
+    letter-spacing:0.2em;
+  }
+
+  .features-heading h2{
+    font-size:24px;
+    line-height:1.3;
+  }
+
+  .sub-text{
+    font-size:13px;
+    padding:0 5px;
+  }
+
+  .premium-divider-new{
+    gap:10px;
+  }
+
+  .line-left,
+  .line-right{
+    width:40px;
+  }
+
+  .center-badge{
+    font-size:10px;
+    padding:5px 12px;
+  }
+
+  .features-grid{
+    grid-template-columns:1fr;
+    gap:20px;
+  }
+
+  .feature-card{
+    padding:25px 20px;
+    border-radius:14px;
+  }
+
+  .feature-image img{
+    width:50px;
+  }
+
+  .feature-card h3{
+    font-size:16px;
+  }
+
+  .feature-card ul{
+    font-size:12px;
+    line-height:1.7;
+  }
+
+  /* Reduce heavy glow on mobile */
+  .feature-glow{
+    width:300px;
+    height:300px;
+    filter:blur(80px);
+    opacity:0.4;
+  }
+
+  /* Slow border animation on mobile for smooth performance */
+  .feature-card::before{
+    animation:borderMove 12s linear infinite;
+  }
+
+}
+
+@media(max-width:480px){
+
+  .features-premium{
+    padding:60px 18px;
+  }
+
+  .features-heading{
+    margin-bottom:50px;
+  }
+
+  .features-heading h2{
+    font-size:22px;
+  }
+
+  .sub-text{
+    font-size:12px;
+  }
+
+}
+
+</style>
+<!-- ================= PREMIUM FAQ SECTION V2 ================= -->
+
+<section class="faq-premium-v2" id="faq">
+
+  <!-- Floating Background Shapes -->
+  <div class="faq-shape shape-a"></div>
+  <div class="faq-shape shape-b"></div>
+
+  <div class="faq-container-v2">
+
+    <!-- HEADING MODEL -->
+    <div class="faq-heading-wrapper">
+
+      <span class="faq-mini-tag">UK REGTECH PLATFORM</span>
+
+      <h2 class="faq-main-heading">
+        Compliance Intelligence <span>Explained Clearly</span>
+      </h2>
+
+      <!-- NEW PREMIUM DIVIDER -->
+      <div class="faq-divider-new">
+        <div class="line-left"></div>
+        <div class="divider-center">
+          FAQ
+        </div>
+        <div class="line-right"></div>
+      </div>
+
+      <p class="faq-sub-text">
+        Understand how ComplianceVault AI transforms tax compliance 
+        into predictive regulatory intelligence for UK micro-businesses.
+      </p>
+
+    </div>
+
+
+    <!-- FAQ ACCORDION -->
+    <div class="faq-accordion-v2">
+
+      <!-- ITEM -->
+      <div class="faq-item-v2">
+        <button class="faq-btn-v2">
+          <div class="faq-left-v2">
+            <span class="faq-num-v2">01</span>
+            <span class="faq-title-v2">What makes ComplianceVault AI different?</span>
+          </div>
+          <span class="faq-icon-v2">➜</span>
+        </button>
+        <div class="faq-answer-v2">
+          ComplianceVault applies causal AI simulations to predict audit risks,
+          estimate penalty exposure, and provide forward-looking compliance insight.
+        </div>
+      </div>
+
+      <div class="faq-item-v2">
+        <button class="faq-btn-v2">
+          <div class="faq-left-v2">
+            <span class="faq-num-v2">02</span>
+            <span class="faq-title-v2">Is the system HMRC MTD aligned?</span>
+          </div>
+          <span class="faq-icon-v2">➜</span>
+        </button>
+        <div class="faq-answer-v2">
+          Yes. It generates digital-link exports fully aligned with MTD VAT and ITSA
+          frameworks and adapts to regulatory changes automatically.
+        </div>
+      </div>
+
+      <div class="faq-item-v2">
+        <button class="faq-btn-v2">
+          <div class="faq-left-v2">
+            <span class="faq-num-v2">03</span>
+            <span class="faq-title-v2">Does it replace traditional accounting software?</span>
+          </div>
+          <span class="faq-icon-v2">➜</span>
+        </button>
+        <div class="faq-answer-v2">
+          No. It overlays existing banking and accounting systems,
+          enhancing them with predictive compliance modelling.
+        </div>
+      </div>
+
+      <div class="faq-item-v2">
+        <button class="faq-btn-v2">
+          <div class="faq-left-v2">
+            <span class="faq-num-v2">04</span>
+            <span class="faq-title-v2">How secure is my financial data?</span>
+          </div>
+          <span class="faq-icon-v2">➜</span>
+        </button>
+        <div class="faq-answer-v2">
+          The platform uses encrypted open-banking integrations,
+          zero-trust cloud architecture, and secure UK infrastructure.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<style>
+
+/* ================= MAIN SECTION ================= */
+
+.faq-premium-v2{
+  background:#ffffff;
+  padding:120px 8%;
+  position:relative;
+  font-family:Arial, sans-serif;
+  overflow:hidden;
+}
+
+/* Floating shapes */
+.faq-shape{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(60px);
+}
+
+.shape-a{
+  width:300px;
+  height:300px;
+  background:#00BFFF15;
+  top:-80px;
+  right:-80px;
+}
+
+.shape-b{
+  width:250px;
+  height:250px;
+  background:#3FA9F520;
+  bottom:-80px;
+  left:-80px;
+}
+
+/* Container */
+.faq-container-v2{
+  max-width:1000px;
+  margin:auto;
+  position:relative;
+  z-index:2;
+}
+
+/* ================= HEADING MODEL ================= */
+
+.faq-heading-wrapper{
+  text-align:center;
+  margin-bottom:70px;
+}
+
+.faq-mini-tag{
+  font-size:11px;
+  letter-spacing:0.3em;
+  color:#00BFFF;
+  font-weight:700;
+}
+
+.faq-main-heading{
+  font-size:42px;
+  font-weight:900;
+  margin-top:20px;
+  color:#0A192F;
+}
+
+.faq-main-heading span{
+  color:#00BFFF;
+}
+
+/* NEW DIVIDER MODEL */
+.faq-divider-new{
+  margin:30px auto;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+}
+
+.line-left,
+.line-right{
+  width:80px;
+  height:2px;
+  background:linear-gradient(to right,#00BFFF,transparent);
+}
+
+.line-right{
+  transform:rotate(180deg);
+}
+
+.divider-center{
+  padding:6px 16px;
+  background:#00BFFF;
+  color:#ffffff;
+  font-size:12px;
+  font-weight:700;
+  border-radius:20px;
+  box-shadow:0 0 15px #00BFFF40;
+}
+
+/* sub text */
+.faq-sub-text{
+  max-width:600px;
+  margin:auto;
+  font-size:14px;
+  color:#4a6785;
+  line-height:1.7;
+}
+
+/* ================= FAQ ACCORDION ================= */
+
+.faq-accordion-v2{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+.faq-item-v2{
+  border:1px solid #dcefff;
+  border-radius:14px;
+  overflow:hidden;
+  transition:0.3s;
+  box-shadow:0 8px 20px rgba(0,191,255,0.05);
+}
+
+.faq-item-v2:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 35px rgba(0,191,255,0.15);
+}
+
+.faq-btn-v2{
+  width:100%;
+  padding:20px;
+  background:#f8fcff;
+  border:none;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  cursor:pointer;
+}
+
+.faq-left-v2{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.faq-num-v2{
+  font-weight:800;
+  color:#00BFFF;
+  min-width:35px;
+}
+
+.faq-title-v2{
+  font-size:15px;
+  font-weight:600;
+  color:#0A192F;
+}
+
+.faq-icon-v2{
+  color:#00BFFF;
+  transition:0.3s;
+}
+
+/* vibration hover */
+.faq-btn-v2:hover .faq-icon-v2{
+  animation:vibrate 0.3s infinite;
+}
+
+@keyframes vibrate{
+  0%{transform:translateX(0)}
+  50%{transform:translateX(3px)}
+  100%{transform:translateX(0)}
+}
+
+/* answer */
+.faq-answer-v2{
+  max-height:0;
+  overflow:hidden;
+  padding:0 20px;
+  font-size:14px;
+  color:#4a6785;
+  line-height:1.7;
+  transition:max-height 0.4s ease, padding 0.4s ease;
+}
+
+/* active */
+.faq-item-v2.active .faq-answer-v2{
+  max-height:200px;
+  padding:15px 20px 20px;
+}
+
+.faq-item-v2.active .faq-icon-v2{
+  transform:rotate(90deg);
+  animation:none;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:768px){
+
+  .faq-premium-v2{
+    padding:80px 20px;
+  }
+
+  .faq-main-heading{
+    font-size:26px;
+  }
+
+  .line-left,
+  .line-right{
+    width:40px;
+  }
+
+}
+
+</style>
+
+<script>
+
+document.querySelectorAll(".faq-btn-v2").forEach(btn=>{
+  btn.addEventListener("click",function(){
+    const item = this.parentElement;
+    item.classList.toggle("active");
+  });
+});
+
+</script>
+<!-- ================= ULTRA DESIGNED CONTACT SECTION ================= -->
+
+<section class="contact-ultimate" id="contact">
+<div class="light-beam"></div>
+<div class="spotlight"></div>
+  <!-- Decorative Shapes -->
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+
+  <div class="contact-wrapper">
+
+    <div class="contact-left">
+
+      <div class="contact-tag">UK REGTECH PLATFORM</div>
+
+      <h2>
+        Take Control Of <span>Predictive Compliance</span>
+      </h2>
+<div class="premium-divider">
+  <span></span>
+</div>
+      <p>
+        ComplianceVault AI transforms open-banking transaction data into
+        forward-looking audit simulations, regulatory drift monitoring,
+        and penalty probability forecasting.
+      </p>
+
+      <div class="contact-highlights">
+        <div>AI-Powered Audit Simulation</div>
+        <div>HMRC MTD-Aligned Intelligence</div>
+        <div>Secure Open-Banking Overlay</div>
+        <div>Counterfactual Risk Modelling</div>
+      </div>
+
+    </div>
+
+<div class="contact-panel-new">
+
+  <div class="panel-frame"></div>
+
+  <div class="panel-content">
+
+    <div class="panel-top-badge">
+      STRATEGIC DEMO ACCESS
+    </div>
+
+    <h3>Executive Compliance Consultation</h3>
+
+    <p>
+      Explore how ComplianceVault AI converts real-time transaction
+      data into structured audit simulation, regulatory monitoring,
+      and penalty risk forecasting.
+    </p>
+
+    <div class="panel-mini-points">
+      <div>• Predict potential HMRC exposure before it escalates</div>
+      <div>• Identify reporting inconsistencies proactively</div>
+      <div>• Simulate audit scenarios with AI modelling</div>
+      <div>• Strengthen financial visibility and planning control</div>
+    </div>
+
+    <div class="panel-divider"></div>
+
+    <button onclick="openMail()" class="contact-btn-new">
+      Schedule Strategic Session →
+    </button>
+
+    <div class="panel-footer-text">
+      Secure • Confidential • No Obligation • UK-Focused Infrastructure
+    </div>
+
+  </div>
+
+</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+    /* ================= NEW CONTACT BOX MODEL ================= */
+
+.contact-panel-new{
+  position:relative;
+  background:#0F2342;
+  border-radius:18px;
+  padding:45px 40px;
+  max-width:380px;
+  border:1px solid #1f3b63;
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.6),
+    0 0 50px rgba(0,191,255,0.05);
+  overflow:hidden;
+  transition:0.4s;
+}
+
+/* Outer animated frame */
+.panel-frame{
+  position:absolute;
+  inset:0;
+  border-radius:18px;
+  padding:1px;
+  background:linear-gradient(90deg,#00BFFF,#3FA9F5,#00BFFF);
+  background-size:200% 200%;
+  animation:frameMove 6s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+}
+
+@keyframes frameMove{
+  0%{background-position:0% 50%;}
+  100%{background-position:200% 50%;}
+}
+
+/* Floating top badge */
+.panel-top-badge{
+  display:inline-block;
+  font-size:10px;
+  letter-spacing:0.3em;
+  padding:6px 14px;
+  background:#00BFFF;
+  color:#0A192F;
+  border-radius:20px;
+  font-weight:700;
+  margin-bottom:20px;
+}
+/* Mini bullet section inside compact box */
+.panel-mini-points{
+  margin-top:15px;
+  margin-bottom:20px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  font-size:12px;
+  color:#A8B2D1;
+  line-height:1.6;
+}
+
+.panel-mini-points div{
+  opacity:0.9;
+}
+/* Content */
+.panel-content h3{
+  font-size:20px;
+  margin-bottom:15px;
+}
+
+.panel-content p{
+  font-size:13px;
+  color:#A8B2D1;
+  line-height:1.7;
+  margin-bottom:25px;
+}
+
+/* Divider inside panel */
+.panel-divider{
+  width:60px;
+  height:2px;
+  background:#00BFFF;
+  margin-bottom:25px;
+  opacity:0.7;
+}
+
+/* Button */
+.contact-btn-new{
+  width:100%;
+  padding:12px;
+  background:#00BFFF;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+  color:#0A192F;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.contact-btn-new:hover{
+  background:#3FA9F5;
+  transform:translateY(-3px);
+}
+
+/* Footer small text */
+.panel-footer-text{
+  margin-top:12px;
+  font-size:10px;
+  color:#8fa6c9;
+  text-align:center;
+}
+
+/* Hover lift */
+.contact-panel-new:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 40px 100px rgba(0,0,0,0.7),
+    0 0 60px rgba(0,191,255,0.15);
+}
+    /* ================= AI FEATURE BOX UPGRADE ================= */
+
+.contact-highlights div{
+  position:relative;
+  padding:16px 22px;
+  background:#112240;
+  border-radius:10px;
+  color:#E6F1FF;
+  font-size:14px;
+  overflow:hidden;
+  border:1px solid #1f3b63;
+  transition:0.4s ease;
+}
+
+/* Moving light border */
+.contact-highlights div::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:10px;
+  padding:1px;
+  background:linear-gradient(
+    120deg,
+    transparent,
+    #00BFFF,
+    transparent
+  );
+  background-size:200% 200%;
+  animation:borderLight 4s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+}
+
+@keyframes borderLight{
+  0%{ background-position:0% 50%; }
+  100%{ background-position:200% 50%; }
+}
+
+/* Soft internal glow */
+.contact-highlights div::after{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  background:radial-gradient(circle,#00BFFF30,transparent);
+  top:-40px;
+  right:-40px;
+  opacity:0.3;
+  transition:0.4s;
+}
+
+/* Hover Enhancement */
+.contact-highlights div:hover{
+  transform:translateY(-6px);
+  box-shadow:0 0 30px rgba(0,191,255,0.3);
+  border-color:#00BFFF;
+}
+
+.contact-highlights div:hover::after{
+  opacity:0.6;
+}
+
+    /* ================= PREMIUM DIVIDER ================= */
+
+.premium-divider{
+  position:relative;
+  width:140px;
+  height:20px;
+  margin:30px 0 35px;
+}
+
+.premium-divider::before,
+.premium-divider::after{
+  content:"";
+  position:absolute;
+  top:50%;
+  width:45px;
+  height:1px;
+  background:linear-gradient(to right,transparent,#00BFFF);
+}
+
+.premium-divider::before{
+  left:0;
+  transform:translateY(-50%);
+}
+
+.premium-divider::after{
+  right:0;
+  transform:translateY(-50%) rotate(180deg);
+}
+
+/* Center glowing dot */
+.premium-divider span{
+  position:absolute;
+  left:50%;
+  top:50%;
+  transform:translate(-50%,-50%);
+  width:8px;
+  height:8px;
+  background:#00BFFF;
+  border-radius:50%;
+  box-shadow:0 0 12px #00BFFF;
+  animation:pulseDot 2s infinite;
+}
+
+@keyframes pulseDot{
+  0%{box-shadow:0 0 6px #00BFFF;}
+  50%{box-shadow:0 0 18px #00BFFF;}
+  100%{box-shadow:0 0 6px #00BFFF;}
+}
+/* ================= EXTRA BACKGROUND LAYERS ================= */
+
+/* Subtle grid mesh */
+.contact-ultimate::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size:70px 70px;
+  opacity:0.4;
+  pointer-events:none;
+}
+
+/* Moving light beam */
+.light-beam{
+  position:absolute;
+  width:200%;
+  height:200px;
+  top:-50px;
+  left:-50%;
+  background:linear-gradient(120deg,transparent,#00BFFF20,transparent);
+  transform:rotate(-10deg);
+  animation:beamMove 10s linear infinite;
+}
+
+@keyframes beamMove{
+  0%{transform:translateX(-100%) rotate(-10deg);}
+  100%{transform:translateX(100%) rotate(-10deg);}
+}
+
+/* Radial spotlight */
+.spotlight{
+  position:absolute;
+  width:600px;
+  height:600px;
+  background:radial-gradient(circle,#00BFFF18,transparent 70%);
+  top:20%;
+  right:15%;
+  filter:blur(30px);
+  animation:spotMove 8s ease-in-out infinite alternate;
+}
+
+@keyframes spotMove{
+  from{transform:translateY(-30px);}
+  to{transform:translateY(30px);}
+}
+
+/* Panel glass shine */
+.contact-panel::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,0.15),transparent);
+  transition:0.6s;
+}
+
+.contact-panel:hover::before{
+  left:100%;
+}
+
+/* Animated border trace */
+.contact-panel::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:25px;
+  padding:2px;
+  background:linear-gradient(90deg,#00BFFF,#3FA9F5,#00BFFF);
+  background-size:300% 300%;
+  animation:borderTrace 6s linear infinite;
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events:none;
+}
+
+@keyframes borderTrace{
+  0%{background-position:0% 50%;}
+  100%{background-position:100% 50%;}
+}
+
+/* Highlight box hover glow */
+.contact-highlights div:hover{
+  box-shadow:0 0 25px rgba(0,191,255,0.3);
+}
+
+/* Button shimmer sweep */
+.contact-btn{
+  position:relative;
+  overflow:hidden;
+}
+
+.contact-btn::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,transparent,#ffffff70,transparent);
+  transition:0.6s;
+}
+
+.contact-btn:hover::before{
+  left:100%;
+}
+
+/* Subtle depth shadow enhancement */
+.contact-panel{
+  box-shadow:
+    0 50px 120px rgba(0,0,0,0.6),
+    0 0 60px rgba(0,191,255,0.08);
+}
+/* ================= MAIN SECTION ================= */
+
+.contact-ultimate{
+  position:relative;
+  background:#0A192F;
+  padding:170px 8%;
+  overflow:hidden;
+  color:#E6F1FF;
+}
+
+/* Animated gradient layer */
+.contact-ultimate::before{
+  content:"";
+  position:absolute;
+  width:100%;
+  height:100%;
+  background:linear-gradient(120deg,#0A192F,#112240,#0A192F);
+  background-size:200% 200%;
+  animation:gradientMove 12s ease infinite;
+  top:0;
+  left:0;
+  opacity:0.7;
+}
+
+@keyframes gradientMove{
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
+
+/* Decorative floating outlines */
+.shape{
+  position:absolute;
+  border:1px solid rgba(0,191,255,0.2);
+  border-radius:20px;
+}
+
+.shape1{
+  width:200px;
+  height:200px;
+  top:10%;
+  left:5%;
+  transform:rotate(15deg);
+}
+
+.shape2{
+  width:300px;
+  height:300px;
+  bottom:5%;
+  right:8%;
+  transform:rotate(-20deg);
+}
+
+/* Layout */
+.contact-wrapper{
+  max-width:1200px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:80px;
+  position:relative;
+  z-index:2;
+}
+
+/* LEFT SIDE */
+.contact-tag{
+  font-size:11px;
+  letter-spacing:0.4em;
+  color:#00BFFF;
+  margin-bottom:30px;
+}
+
+.contact-left h2{
+  font-size:50px;
+  font-weight:900;
+  line-height:1.2;
+}
+
+.contact-left h2 span{
+  color:#00BFFF;
+}
+
+.contact-left p{
+  margin-top:25px;
+  line-height:1.8;
+  color:#A8B2D1;
+  max-width:600px;
+}
+
+/* Highlights */
+.contact-highlights{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+  font-size:14px;
+}
+
+.contact-highlights div{
+  padding:15px 20px;
+  background:#112240;
+  border-radius:8px;
+  border:1px solid #1f3b63;
+  transition:0.3s;
+}
+
+.contact-highlights div:hover{
+  border-color:#00BFFF;
+}
+
+/* RIGHT SIDE PANEL */
+.contact-panel{
+  background:#112240;
+  padding:80px 60px;
+  border-radius:25px;
+  border:1px solid rgba(0,191,255,0.3);
+  box-shadow:0 50px 120px rgba(0,0,0,0.6);
+  position:relative;
+  overflow:hidden;
+  transition:0.4s;
+}
+
+.contact-panel:hover{
+  transform:translateY(-10px);
+  border-color:#00BFFF;
+}
+
+/* Vertical accent */
+.panel-accent{
+  position:absolute;
+  left:0;
+  top:0;
+  width:6px;
+  height:100%;
+  background:#00BFFF;
+}
+
+.contact-panel h3{
+  font-size:26px;
+  margin-bottom:25px;
+}
+
+.contact-panel p{
+  font-size:14px;
+  line-height:1.8;
+  color:#A8B2D1;
+  margin-bottom:45px;
+}
+
+/* BUTTON */
+.contact-btn{
+  background:#00BFFF;
+  color:#0A192F;
+  padding:18px 40px;
+  font-weight:700;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.contact-btn:hover{
+  background:#3FA9F5;
+}
+
+/* ================= MOBILE OPTIMIZED PREMIUM ================= */
+
+@media(max-width:900px){
+
+  .contact-ultimate{
+    padding:80px 20px;
+  }
+
+  /* Reduce heavy background glow size */
+  .spotlight{
+    width:300px;
+    height:300px;
+    top:10%;
+    right:10%;
+    filter:blur(40px);
+  }
+
+  .light-beam{
+    height:120px;
+  }
+
+  /* Hide decorative shapes on small screens */
+  .shape{
+    display:none;
+  }
+
+  /* Stack layout properly */
+  .contact-wrapper{
+    grid-template-columns:1fr;
+    gap:45px;
+  }
+
+  /* Adjust heading */
+  .contact-left h2{
+    font-size:28px;
+    line-height:1.3;
+  }
+
+  .contact-left p{
+    font-size:14px;
+  }
+
+  /* Premium divider centered */
+  .premium-divider{
+    margin:25px auto 30px;
+  }
+
+  /* Highlights full width */
+  .contact-highlights{
+    grid-template-columns:1fr;
+    gap:15px;
+  }
+
+  .contact-highlights div{
+    padding:14px 18px;
+    font-size:13px;
+  }
+
+  /* Contact Box Mobile */
+  .contact-panel-new{
+    max-width:100%;
+    padding:35px 25px;
+  }
+
+  .panel-top-badge{
+    font-size:9px;
+    letter-spacing:0.25em;
+  }
+
+  .panel-content h3{
+    font-size:18px;
+  }
+
+  .panel-content p{
+    font-size:13px;
+  }
+
+  .panel-mini-points{
+    font-size:12px;
+    gap:6px;
+  }
+
+  .contact-btn-new{
+    padding:12px;
+    font-size:14px;
+  }
+
+  .panel-footer-text{
+    font-size:9px;
+  }
+
+}
+
+</style>
+
+<script>
+function openMail(){
+  const email="info@compliancevaultai.co.uk";
+  const subject="Executive Demo Request";
+  const body="Hello ComplianceVault AI Team,%0A%0AI would like to schedule a demo.%0A%0ACompany Name:%0ARole:%0A%0ARegards,";
+  window.location.href=`mailto:${email}?subject=${subject}&body=${body}`;
+}
+</script>
+<!-- ================= PREMIUM FOOTER ================= -->
+
+<footer class="footer-premium">
+
+  <div class="footer-top-line"></div>
+
+  <div class="footer-container">
+
+    <!-- LEFT -->
+    <div class="footer-left">
+      <div class="footer-logo">
+        ComplianceVault AI Ltd
+      </div>
+      <div class="footer-tag">
+        UK RegTech SaaS Platform
+      </div>
+    </div>
+
+    <div class="footer-center">
+
+  <div class="center-ribbon">
+
+    <div class="status-indicator"></div>
+
+    <span class="center-text">
+      AI Compliance Engine Active
+    </span>
+
+    <div class="center-divider"></div>
+
+    <span class="center-text">
+      MTD 2026 Ready Infrastructure
+    </span>
+
+  </div>
+
+</div>
+
+    <!-- RIGHT -->
+    <div class="footer-right">
+      <span class="uk-flag">🇬🇧</span>
+      <span>United Kingdom</span>
+      <span class="footer-separator">|</span>
+      <span>© 2026</span>
+    </div>
+
+  </div>
+
+</footer>
+
+<style>
+/* ================= ADVANCED CENTER FOOTER ================= */
+
+.footer-center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.center-ribbon{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:8px 18px;
+  background:rgba(255,255,255,0.6);
+  backdrop-filter:blur(6px);
+  border-radius:30px;
+  border:1px solid #a9ddff;
+  position:relative;
+  box-shadow:0 0 25px rgba(0,191,255,0.15);
+  font-size:11px;
+}
+
+/* AI pulse dot */
+.status-indicator{
+  width:8px;
+  height:8px;
+  background:#00BFFF;
+  border-radius:50%;
+  animation:pulseAI 2s infinite;
+}
+
+@keyframes pulseAI{
+  0%{box-shadow:0 0 4px #00BFFF;}
+  50%{box-shadow:0 0 12px #00BFFF;}
+  100%{box-shadow:0 0 4px #00BFFF;}
+}
+
+/* Divider line */
+.center-divider{
+  width:1px;
+  height:14px;
+  background:#0A192F30;
+}
+
+/* Text styling */
+.center-text{
+  font-weight:600;
+  color:#0A192F;
+  position:relative;
+}
+
+/* Animated underline */
+.center-text::after{
+  content:"";
+  position:absolute;
+  bottom:-3px;
+  left:0;
+  width:100%;
+  height:1px;
+  background:#00BFFF;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:0.4s;
+}
+
+.center-ribbon:hover .center-text::after{
+  transform:scaleX(1);
+}
+/* ================= ULTRA CENTER FOOTER ================= */
+
+.footer-center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.center-wrapper{
+  position:relative;
+  padding:2px;
+  border-radius:40px;
+  background:linear-gradient(90deg,#00BFFF,#3FA9F5,#00BFFF);
+  background-size:200% 200%;
+  animation:borderMove 6s linear infinite;
+}
+
+@keyframes borderMove{
+  0%{background-position:0% 50%;}
+  100%{background-position:200% 50%;}
+}
+
+/* Soft glow background */
+.center-glow{
+  position:absolute;
+  inset:0;
+  border-radius:40px;
+  background:radial-gradient(circle,#00BFFF20,transparent);
+  filter:blur(10px);
+}
+
+/* Inner ribbon */
+.center-ribbon-advanced{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:8px 22px;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(6px);
+  border-radius:40px;
+  font-size:11px;
+  position:relative;
+  z-index:2;
+}
+
+/* AI pulse dot */
+.ai-indicator{
+  width:8px;
+  height:8px;
+  background:#00BFFF;
+  border-radius:50%;
+  animation:pulseAI 2s infinite;
+}
+
+@keyframes pulseAI{
+  0%{box-shadow:0 0 4px #00BFFF;}
+  50%{box-shadow:0 0 14px #00BFFF;}
+  100%{box-shadow:0 0 4px #00BFFF;}
+}
+
+/* Text items */
+.center-item{
+  font-weight:600;
+  color:#0A192F;
+  position:relative;
+  white-space:nowrap;
+}
+
+/* Hover underline animation */
+.center-item::after{
+  content:"";
+  position:absolute;
+  bottom:-3px;
+  left:0;
+  width:100%;
+  height:1px;
+  background:#00BFFF;
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:0.4s;
+}
+
+.center-ribbon-advanced:hover .center-item::after{
+  transform:scaleX(1);
+}
+
+/* Separator */
+.center-separator{
+  width:1px;
+  height:14px;
+  background:#0A192F30;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .center-ribbon-advanced{
+    flex-direction:column;
+    gap:6px;
+    padding:12px 18px;
+    text-align:center;
+  }
+
+  .center-separator{
+    display:none;
+  }
+}
+/* ================= FOOTER ================= */
+
+.footer-premium{
+  position:relative;
+  background:linear-gradient(135deg,#d9f2ff,#bfe9ff);
+  padding:25px 8%;
+  font-family:Arial, sans-serif;
+  color:#0A192F;
+  overflow:hidden;
+}
+
+/* Animated top border */
+.footer-top-line{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg,#00BFFF,#3FA9F5,#00BFFF);
+  background-size:200% 200%;
+  animation:lineMove 6s linear infinite;
+}
+
+@keyframes lineMove{
+  0%{background-position:0% 50%;}
+  100%{background-position:200% 50%;}
+}
+
+/* Layout */
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:15px;
+}
+
+/* LEFT */
+.footer-logo{
+  font-weight:800;
+  font-size:14px;
+}
+
+.footer-tag{
+  font-size:11px;
+  color:#174e75;
+}
+
+/* CENTER */
+.footer-center{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:11px;
+}
+
+.footer-badge{
+  padding:6px 12px;
+  background:#ffffff;
+  border-radius:20px;
+  border:1px solid #b0dfff;
+}
+
+.footer-dot{
+  width:5px;
+  height:5px;
+  background:#0A192F;
+  border-radius:50%;
+}
+
+/* RIGHT */
+.footer-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+}
+
+.uk-flag{
+  font-size:16px;
+}
+
+.footer-separator{
+  opacity:0.5;
+}
+
+/* ================= PREMIUM FOOTER ================= */
+
+.footer-premium{
+  position:relative;
+  background:linear-gradient(135deg,#d9f2ff,#bfe9ff);
+  padding:20px 6%;
+  font-family:Arial, sans-serif;
+  color:#0A192F;
+  overflow:hidden;
+}
+
+/* Top animated line */
+.footer-top-line{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg,#00BFFF,#3FA9F5,#00BFFF);
+  background-size:200% 200%;
+  animation:lineMove 6s linear infinite;
+}
+
+@keyframes lineMove{
+  0%{background-position:0% 50%;}
+  100%{background-position:200% 50%;}
+}
+
+/* Layout */
+.footer-container{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+/* LEFT */
+.footer-left{
+  display:flex;
+  flex-direction:column;
+}
+
+.footer-logo{
+  font-weight:800;
+  font-size:14px;
+}
+
+.footer-tag{
+  font-size:11px;
+  color:#174e75;
+}
+
+/* CENTER RIBBON */
+.footer-center{
+  display:flex;
+  justify-content:center;
+  flex:1;
+}
+
+.center-ribbon{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  padding:6px 16px;
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(6px);
+  border-radius:25px;
+  border:1px solid #a9ddff;
+  box-shadow:0 0 15px rgba(0,191,255,0.15);
+  font-size:11px;
+  text-align:center;
+  white-space:nowrap;
+}
+
+/* AI pulse */
+.status-indicator{
+  width:7px;
+  height:7px;
+  background:#00BFFF;
+  border-radius:50%;
+  animation:pulseAI 2s infinite;
+}
+
+@keyframes pulseAI{
+  0%{box-shadow:0 0 4px #00BFFF;}
+  50%{box-shadow:0 0 12px #00BFFF;}
+  100%{box-shadow:0 0 4px #00BFFF;}
+}
+
+.center-divider{
+  width:1px;
+  height:12px;
+  background:#0A192F30;
+}
+
+.center-text{
+  font-weight:600;
+  color:#0A192F;
+}
+
+/* RIGHT */
+.footer-right{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:12px;
+}
+
+.uk-flag{
+  font-size:16px;
+}
+
+.footer-separator{
+  opacity:0.5;
+}
+
+/* ================= MOBILE OPTIMIZATION ================= */
+
+@media(max-width:768px){
+
+  .footer-premium{
+    padding:18px 20px;
+  }
+
+  .footer-container{
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    gap:14px;
+  }
+
+  .footer-left{
+    align-items:center;
+  }
+
+  .footer-center{
+    width:100%;
+  }
+
+  .center-ribbon{
+    flex-direction:column;
+    gap:6px;
+    padding:10px 14px;
+    white-space:normal;
+  }
+
+  .center-divider{
+    display:none;
+  }
+
+  .footer-right{
+    justify-content:center;
+    font-size:11px;
+  }
+
+}
+
+</style>
+
+<script>
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("show");
+}
+</script>
+
+</body>
+</html>
